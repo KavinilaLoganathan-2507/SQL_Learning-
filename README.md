@@ -1,10 +1,7 @@
 # SQL_Learning
 ## SQL Basics
-## Day 1 
 
 Suppose you have a table called **Employees**.
-
-
 | EmployeeID | Name | Age | Salary |
 | :---: | :--- | :---: | :---: |
 | **1** | Alice | 25 | $40,000 |
