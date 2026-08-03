@@ -53,3 +53,15 @@ Write an SQL query to display all employees who work in the **IT** department.
 | **1** | Alice | 25 | $40,000 |IT |
 | **3** | Charlie | 28 | $45,000 |IT|
 
+Q4:
+Write an SQL query to display only the Name and Department of all employees.
+
+🔵Query: SELECT Name, Department FROM Employees;
+
+⭐Output:
+| Name  | Department|
+| :---: | :---: | 
+|  Alice  | IT |
+|  Bob  |HR|
+|  Charlie  |IT|
+
