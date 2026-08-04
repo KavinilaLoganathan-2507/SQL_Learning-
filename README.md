@@ -65,3 +65,26 @@ Write an SQL query to display only the Name and Department of all employees.
 |  Bob  |HR|
 |  Charlie  |IT|
 
+Suppose you have a table called **Employees**.
+| EmployeeID | Name    | Age | Department | Salary |
+| ---------- | ------- | --- | ---------- | ------ |
+| 1          | Alice   | 25  | HR         | 40000  |
+| 2          | Bob     | 30  | IT         | 50000  |
+| 3          | Charlie | 28  | Finance    | 45000  |
+| 4          | David   | 35  | IT         | 60000  |
+| 5          | Eva     | 27  | HR         | 42000  |
+| 6          | Frank   | 32  | IT         | 55000  |
+
+
+🔵Query:
+SELECT * FROM Employees
+WHERE Salary > 45000;
+
+⭐Output:
+| EmployeeID | Name  | Age | Department | Salary |
+| ---------- | ----- | --- | ---------- | ------ |
+| 2          | Bob   | 30  | IT         | 50000  |
+| 4          | David | 35  | IT         | 60000  |
+| 6          | Frank | 32  | IT         | 55000  |
+
+
