@@ -116,6 +116,66 @@ SELECT * FROM Employees WHERE Age < 30;
 | 5          | Eva     | 27  | HR         | 42000  |
 
 
+Suppose you have a table called **Employees**.
+| EmployeeID | Name    | Age | Department | Salary |
+| ---------- | ------- | --- | ---------- | ------ |
+| 1          | Alice   | 25  | HR         | 40000  |
+| 2          | Bob     | 30  | IT         | 50000  |
+| 3          | Charlie | 28  | Finance    | 45000  |
+| 4          | David   | 35  | IT         | 60000  |
+| 5          | Eva     | 27  | HR         | 42000  |
+| 6          | Frank   | 32  | IT         | 55000  |
+
+
+Q6:
+Write an SQL query to display  all Employees Sorted by age in ascending order 
+
+🔵Query:
+SELECT * FROM Employees
+ORDER BY Age ASC;
+
+⭐Output:
+| EmployeeID | Name    | Age | Department | Salary |
+| ---------- | ------- | --- | ---------- | ------ |
+| 1          | Alice   | 25  | HR         | 40000  |
+| 5          | Eva     | 27  | HR         | 42000  |
+| 3          | Charlie | 28  | Finance    | 45000  |
+| 2          | Bob     | 30  | IT         | 50000  |
+| 6          | Frank   | 32  | IT         | 55000  |
+| 4          | David   | 35  | IT         | 60000  |
+
+
+Suppose you have a table called **Employees**.
+
+| EmployeeID | Name    | Department |
+| ---------- | ------- | ---------- |
+| 1          | Alice   | HR         |
+| 2          | Bob     | IT         |
+| 3          | Charlie | Finance    |
+| 4          | David   | IT         |
+| 5          | Eva     | HR         |
+| 6          | Frank   | IT         |
+
+
+Q7:
+Write a query to display all unique department names from the table 
+
+
+🔵Query:
+SELECT DISTINCT Department
+FROM Employees;
+
+⭐Output:
+| Department |
+| ---------- |
+| HR         |
+| IT         |
+| Finance    |
+
+
+
+
+
 
 
 
