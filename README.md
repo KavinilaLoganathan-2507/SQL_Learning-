@@ -173,6 +173,31 @@ FROM Employees;
 | Finance    |
 
 
+Use this Employees table:
+| EmployeeID | Name    | Department | Salary |
+| ---------: | ------- | ---------- | -----: |
+|          1 | Alice   | HR         |  40000 |
+|          2 | Bob     | IT         |  50000 |
+|          3 | Charlie | Finance    |  45000 |
+|          4 | David   | IT         |  60000 |
+|          5 | Eva     | HR         |  42000 |
+|          6 | Frank   | IT         |  55000 |
+
+Q8:
+Write an SQL query to display the Name and Salary of employees whose salary is between 45000 and 55000, inclusive.
+
+🔵Query:
+SELECT Name, Salary
+FROM Employees
+WHERE Salary BETWEEN 45000 AND 55000;
+
+⭐Output:
+| Name    | Salary |
+| ------- | -----: |
+| Bob     | 50,000 |
+| Charlie | 45,000 |
+| Frank   | 55,000 |
+
 
 
 
