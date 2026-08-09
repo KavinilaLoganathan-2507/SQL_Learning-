@@ -198,9 +198,29 @@ WHERE Salary BETWEEN 45000 AND 55000;
 | Charlie | 45,000 |
 | Frank   | 55,000 |
 
+Use this table for Employees:
+| EmployeeID | Name    | Department | Salary |
+| ---------: | ------- | ---------- | -----: |
+|          1 | Alice   | HR         |  40000 |
+|          2 | Bob     | IT         |  50000 |
+|          3 | Charlie | Finance    |  45000 |
+|          4 | David   | IT         |  60000 |
+|          5 | Eva     | HR         |  42000 |
+|          6 | Frank   | IT         |  55000 |
 
+Q9:
+Write an SQL query to display the Name and Department of employees who work in either the IT or HR department.
 
+🔵Query:
+SELECT Name, Department FROM Employees WHERE Department IN ('IT', 'HR');
 
-
+⭐Output:
+| Name  | Department |
+| ----- | ---------- |
+| Alice | HR         |
+| Bob   | IT         |
+| David | IT         |
+| Eva   | HR         |
+| Frank | IT         |
 
 
