@@ -224,3 +224,30 @@ SELECT Name, Department FROM Employees WHERE Department IN ('IT', 'HR');
 | Frank | IT         |
 
 
+
+Use this table for Employees:
+| EmployeeID | Name    | Department | Salary |
+| ---------: | ------- | ---------- | -----: |
+|          1 | Alice   | HR         |  40000 |
+|          2 | Bob     | IT         |  50000 |
+|          3 | Charlie | Finance    |  45000 |
+|          4 | David   | IT         |  60000 |
+|          5 | Eva     | HR         |  42000 |
+|          6 | Frank   | IT         |  55000 |
+
+Q10:
+Write an SQL query to display the Name of employees whose name starts with the letter A.
+
+🔵Query:
+SELECT Name
+FROM Employees
+WHERE Name LIKE 'A%';
+
+⭐Output:
+
+| Name  |
+| ----- |
+| Alice |
+
+
+
