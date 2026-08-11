@@ -249,5 +249,33 @@ WHERE Name LIKE 'A%';
 | ----- |
 | Alice |
 
+Use this Employees table:
+| EmployeeID | Name    | Department | Salary |
+| ---------: | ------- | ---------- | -----: |
+|          1 | Alice   | HR         |  40000 |
+|          2 | Bob     | IT         |  50000 |
+|          3 | Charlie | Finance    |  45000 |
+|          4 | David   | IT         |  60000 |
+|          5 | Eva     | HR         |  42000 |
+|          6 | Frank   | IT         |  55000 |
+
+
+Q11:
+Write an SQL query to display the Name and Salary of all employees whose salary is greater than 45,000, and sort the result from highest salary to lowest salary.
+
+🔵Query:
+SELECT Name, Salary
+FROM Employees
+WHERE Salary > 45000
+ORDER BY Salary DESC;
+
+⭐Output:
+| Name  | Salary |
+| ----- | -----: |
+| David | 60,000 |
+| Frank | 55,000 |
+| Bob   | 50,000 |
+
+
 
 
