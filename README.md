@@ -276,6 +276,26 @@ ORDER BY Salary DESC;
 | Frank | 55,000 |
 | Bob   | 50,000 |
 
+Use this Employees table:
+| EmployeeID | Name    | Department | Salary |
+| ---------: | ------- | ---------- | -----: |
+|          1 | Alice   | HR         |  40000 |
+|          2 | Bob     | IT         |  50000 |
+|          3 | Charlie | Finance    |  45000 |
+|          4 | David   | IT         |  60000 |
+|          5 | Eva     | HR         |  42000 |
+|          6 | Frank   | IT         |  55000 |
 
+Write an SQL query to display the Department and the number of employees in each department.
+
+🔵Query:
+SELECT Department, COUNT(*)
+FROM Employees
+GROUP BY Department;
+
+⭐Output:
+SELECT Department, COUNT(*)
+FROM Employees
+GROUP BY Department;
 
 
