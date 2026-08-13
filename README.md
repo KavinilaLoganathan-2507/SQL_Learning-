@@ -286,6 +286,8 @@ Use this Employees table:
 |          5 | Eva     | HR         |  42000 |
 |          6 | Frank   | IT         |  55000 |
 
+
+Q12:
 Write an SQL query to display the Department and the number of employees in each department.
 
 🔵Query:
@@ -294,8 +296,42 @@ FROM Employees
 GROUP BY Department;
 
 ⭐Output:
-SELECT Department, COUNT(*)
+| Department | Employee Count |
+| ---------- | -------------: |
+| HR         |              2 |
+| IT         |              3 |
+| Finance    |              1 |
+
+
+
+Use this table Employee:
+| EmployeeID | Name    | Department | Salary |
+| ---------: | ------- | ---------- | -----: |
+|          1 | Alice   | HR         |  40000 |
+|          2 | Bob     | IT         |  50000 |
+|          3 | Charlie | Finance    |  45000 |
+|          4 | David   | IT         |  60000 |
+|          5 | Eva     | HR         |  42000 |
+|          6 | Frank   | IT         |  55000 |
+
+
+Q13:
+Write an SQL query to display each Department and the average salary of employees in that department.
+
+🔵Query:
+SELECT Department, AVG(Salary) AS Average_Salary
 FROM Employees
 GROUP BY Department;
+
+⭐Output:
+| Department | Average_Salary |
+| ---------- | -------------: |
+| HR         |         41,000 |
+| IT         |         55,000 |
+| Finance    |         45,000 |
+
+
+
+
 
 
