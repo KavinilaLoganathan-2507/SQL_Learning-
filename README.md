@@ -330,8 +330,31 @@ GROUP BY Department;
 | IT         |         55,000 |
 | Finance    |         45,000 |
 
+Use this Employees table:
+| EmployeeID | Name    | Department | Salary |
+| ---------: | ------- | ---------- | -----: |
+|          1 | Alice   | HR         |  40000 |
+|          2 | Bob     | IT         |  50000 |
+|          3 | Charlie | Finance    |  45000 |
+|          4 | David   | IT         |  60000 |
+|          5 | Eva     | HR         |  42000 |
+|          6 | Frank   | IT         |  55000 |
 
 
+
+🔵Query:
+
+SELECT Department, AVG(Salary) AS AverageSalary
+FROM Employees
+GROUP BY Department
+HAVING AVG(Salary) > 45000;
+
+
+⭐Output:
+
+| Department | AverageSalary |
+| ---------- | ------------: |
+| IT         |        55,000 |
 
 
 
