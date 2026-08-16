@@ -381,3 +381,51 @@ ORDER BY Salary DESC;
 | David | 60,000 |
 | Frank | 55,000 |
 | Bob   | 50,000 |
+
+
+Use these two tables:
+
+Employees
+
+| EmployeeID | Name    | DepartmentID |
+| ---------: | ------- | -----------: |
+|          1 | Alice   |           10 |
+|          2 | Bob     |           20 |
+|          3 | Charlie |           30 |
+|          4 | David   |           20 |
+|          5 | Eva     |           10 |
+
+Department
+
+| DepartmentID | DepartmentName |
+| -----------: | -------------- |
+|           10 | HR             |
+|           20 | IT             |
+|           30 | Finance        |
+
+Write a query to display:
+
+* Employee Name
+* DepartmentName
+
+You need to combine the two tables using their common DepartmentID.
+
+### INNER JOIN
+
+🔵Query:
+SELECT *
+FROM Employees
+JOIN Departments
+ON Employees.DepartmentID = Departments.DepartmentID;
+
+⭐Output:
+| Name    | DepartmentName |
+| ------- | -------------- |
+| Alice   | HR             |
+| Bob     | IT             |
+| Charlie | Finance        |
+| David   | IT             |
+| Eva     | HR             |
+
+
+
