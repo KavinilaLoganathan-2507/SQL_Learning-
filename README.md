@@ -451,7 +451,7 @@ Departments:
 Write an SQL query using a LEFT JOIN to display:
 * Employee Name
 * DepartmentName
-The result should include every employee, even if their department doesn't have a matching record.
+#### The result should include every employee, even if their department doesn't have a matching record.
 
 🔵Query:
 
