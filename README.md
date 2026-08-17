@@ -428,4 +428,47 @@ ON Employees.DepartmentID = Departments.DepartmentID;
 | Eva     | HR             |
 
 
+Use these tables:
+
+Employees:
+| EmployeeID | Name    | DepartmentID |
+| ---------: | ------- | -----------: |
+|          1 | Alice   |           10 |
+|          2 | Bob     |           20 |
+|          3 | Charlie |           30 |
+|          4 | David   |           20 |
+|          5 | Eva     |           10 |
+
+Departments:
+| DepartmentID | DepartmentName |
+| -----------: | -------------- |
+|           10 | HR             |
+|           20 | IT             |
+|           30 | Finance        |
+|           40 | Marketing      |
+
+
+Write an SQL query using a LEFT JOIN to display:
+* Employee Name
+* DepartmentName
+The result should include every employee, even if their department doesn't have a matching record.
+
+🔵Query:
+
+SELECT 
+    e.Name AS EmployeeName, 
+    d.DepartmentName
+FROM Employees e
+LEFT JOIN Departments d 
+    ON e.DepartmentID = d.DepartmentID;
+    
+⭐Output:
+| Name    | DepartmentName |
+| ------- | -------------- |
+| Alice   | HR             |
+| Bob     | IT             |
+| Charlie | Finance        |
+| David   | IT             |
+| Eva     | HR             |
+
 
