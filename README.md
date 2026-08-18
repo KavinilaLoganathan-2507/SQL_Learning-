@@ -403,14 +403,14 @@ Department
 |           20 | IT             |
 |           30 | Finance        |
 
-Write a query to display:
+Q:Write a query to display:
 
 * Employee Name
 * DepartmentName
 
 You need to combine the two tables using their common DepartmentID.
 
-### INNER JOIN
+## INNER JOIN
 
 🔵Query:
 SELECT *
@@ -447,6 +447,7 @@ Departments:
 |           30 | Finance        |
 |           40 | Marketing      |
 
+## LEFT JOIN
 
 Write an SQL query using a LEFT JOIN to display:
 * Employee Name
@@ -471,4 +472,44 @@ LEFT JOIN Departments d
 | David   | IT             |
 | Eva     | HR             |
 
+
+Use these tables:
+
+Employees:
+
+| EmployeeID | Name    | DepartmentID | Salary |
+| ---------: | ------- | -----------: | -----: |
+|          1 | Alice   |           10 |  40000 |
+|          2 | Bob     |           20 |  50000 |
+|          3 | Charlie |           30 |  45000 |
+|          4 | David   |           20 |  60000 |
+|          5 | Eva     |           10 |  42000 |
+
+Departments:
+
+| DepartmentID | DepartmentName |
+| -----------: | -------------- |
+|           10 | HR             |
+|           20 | IT             |
+|           30 | Finance        |
+
+
+Q: Write an SQL query to display:
+DepartmentName
+Average Salary of employees in each department
+You need to combine the two tables.
+
+🔵Query:
+SELECT d.DepartmentName, AVG(e.Salary) AS AverageSalary
+FROM Departments d
+JOIN Employees e
+    ON d.DepartmentID = e.DepartmentID
+GROUP BY d.DepartmentName;
+
+⭐Output:
+| DepartmentName | Average Salary |
+| -------------- | -------------: |
+| HR             |          41000 |
+| IT             |          55000 |
+| Finance        |          45000 |
 
