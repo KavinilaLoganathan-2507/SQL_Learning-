@@ -21,6 +21,7 @@ Write an SQL query to display all columns and all rows from the Employees table.
 | **2** | Bob | 30 | $50,000 |
 | **3** | Charlie | 28 | $45,000 |
 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Q2:
 Write an SQL query to display only the Name and Salary columns from the Employees table.
@@ -33,6 +34,8 @@ Write an SQL query to display only the Name and Salary columns from the Employee
 |  Alice | $40,000 |
 |  Bob | $50,000 |
 |  Charlie | $45,000 |
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Suppose you have a table called **Employees**.
 
@@ -53,6 +56,8 @@ Write an SQL query to display all employees who work in the **IT** department.
 | **1** | Alice | 25 | $40,000 |IT |
 | **3** | Charlie | 28 | $45,000 |IT|
 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 Q4:
 Write an SQL query to display only the Name and Department of all employees.
 
@@ -64,6 +69,8 @@ Write an SQL query to display only the Name and Department of all employees.
 |  Alice  | IT |
 |  Bob  |HR|
 |  Charlie  |IT|
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Suppose you have a table called **Employees**.
 | EmployeeID | Name    | Age | Department | Salary |
@@ -90,6 +97,7 @@ WHERE Salary > 45000;
 | 4          | David | 35  | IT         | 60000  |
 | 6          | Frank | 32  | IT         | 55000  |
 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Suppose you have a table called **Employees**.
 | EmployeeID | Name    | Age | Department | Salary |
@@ -115,6 +123,7 @@ SELECT * FROM Employees WHERE Age < 30;
 | 3          | Charlie | 28  | Finance    | 45000  |
 | 5          | Eva     | 27  | HR         | 42000  |
 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Suppose you have a table called **Employees**.
 | EmployeeID | Name    | Age | Department | Salary |
@@ -144,6 +153,7 @@ ORDER BY Age ASC;
 | 6          | Frank   | 32  | IT         | 55000  |
 | 4          | David   | 35  | IT         | 60000  |
 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Suppose you have a table called **Employees**.
 
@@ -172,6 +182,7 @@ FROM Employees;
 | IT         |
 | Finance    |
 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Use this Employees table:
 | EmployeeID | Name    | Department | Salary |
@@ -198,6 +209,8 @@ WHERE Salary BETWEEN 45000 AND 55000;
 | Charlie | 45,000 |
 | Frank   | 55,000 |
 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 Use this table for Employees:
 | EmployeeID | Name    | Department | Salary |
 | ---------: | ------- | ---------- | -----: |
@@ -223,7 +236,7 @@ SELECT Name, Department FROM Employees WHERE Department IN ('IT', 'HR');
 | Eva   | HR         |
 | Frank | IT         |
 
-
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Use this table for Employees:
 | EmployeeID | Name    | Department | Salary |
@@ -248,6 +261,8 @@ WHERE Name LIKE 'A%';
 | Name  |
 | ----- |
 | Alice |
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Use this Employees table:
 | EmployeeID | Name    | Department | Salary |
@@ -276,6 +291,8 @@ ORDER BY Salary DESC;
 | Frank | 55,000 |
 | Bob   | 50,000 |
 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 Use this Employees table:
 | EmployeeID | Name    | Department | Salary |
 | ---------: | ------- | ---------- | -----: |
@@ -302,7 +319,7 @@ GROUP BY Department;
 | IT         |              3 |
 | Finance    |              1 |
 
-
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Use this table Employee:
 | EmployeeID | Name    | Department | Salary |
@@ -330,6 +347,8 @@ GROUP BY Department;
 | IT         |         55,000 |
 | Finance    |         45,000 |
 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 Use this Employees table:
 | EmployeeID | Name    | Department | Salary |
 | ---------: | ------- | ---------- | -----: |
@@ -356,6 +375,7 @@ HAVING AVG(Salary) > 45000;
 | ---------- | ------------: |
 | IT         |        55,000 |
 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Use this table: Employees:
 
@@ -382,6 +402,7 @@ ORDER BY Salary DESC;
 | Frank | 55,000 |
 | Bob   | 50,000 |
 
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Use these two tables:
 
@@ -427,6 +448,7 @@ ON Employees.DepartmentID = Departments.DepartmentID;
 | David   | IT             |
 | Eva     | HR             |
 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Use these tables:
 
@@ -472,6 +494,7 @@ LEFT JOIN Departments d
 | David   | IT             |
 | Eva     | HR             |
 
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Use these tables:
 
@@ -513,3 +536,47 @@ GROUP BY d.DepartmentName;
 | IT             |          55000 |
 | Finance        |          45000 |
 
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Employees
+| EmployeeID | Name    | Department | Salary |
+| ---------: | ------- | ---------- | -----: |
+|          1 | Alice   | HR         |  40000 |
+|          2 | Bob     | IT         |  50000 |
+|          3 | Charlie | HR         |  45000 |
+|          4 | David   | IT         |  60000 |
+|          5 | Eva     | Finance    |  55000 |
+|          6 | Frank   | IT         |  55000 |
+
+Write an SQL query to find the second highest salary in each department.
+
+🔵Query:
+
+WITH RankedSalaries AS (
+    SELECT 
+        Department,
+        Salary,
+        DENSE_RANK() OVER (PARTITION BY Department ORDER BY Salary DESC) as RankNum
+    FROM Employees
+),
+DepartmentsList AS (
+    SELECT DISTINCT Department FROM Employees
+)
+SELECT 
+    d.Department,
+    r.Salary AS SecondHighestSalary
+FROM DepartmentsList d
+LEFT JOIN RankedSalaries r 
+    ON d.Department = r.Department AND r.RankNum = 2;
+
+
+⭐Output:
+
+| Department | SecondHighestSalary |
+| ---------- | ------------------: |
+| HR         |               40000 |
+| IT         |               55000 |
+| Finance    |                NULL |
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
