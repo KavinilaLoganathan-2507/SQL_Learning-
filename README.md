@@ -580,3 +580,32 @@ LEFT JOIN RankedSalaries r
 
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Employees:
+
+| EmployeeID | Name    | Department | Salary |
+| ---------: | ------- | ---------- | -----: |
+|          1 | Alice   | HR         |  40000 |
+|          2 | Bob     | IT         |  50000 |
+|          3 | Charlie | HR         |  45000 |
+|          4 | David   | IT         |  60000 |
+|          5 | Eva     | Finance    |  55000 |
+|          6 | Frank   | IT         |  55000 |
+
+Write an SQL query to find employees whose salary is greater than the average salary of all employees.
+
+🔵Query:
+
+SELECT Name, Salary
+FROM Employees
+WHERE Salary > (SELECT AVG(Salary) FROM Employees);
+
+⭐Output:
+
+| Name  | Salary |
+| ----- | -----: |
+| David |  60000 |
+| Eva   |  55000 |
+| Frank |  55000 |
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
