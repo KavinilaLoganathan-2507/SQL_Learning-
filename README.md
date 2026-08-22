@@ -609,3 +609,34 @@ WHERE Salary > (SELECT AVG(Salary) FROM Employees);
 | Frank |  55000 |
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Use this table:
+
+Employees
+
+| EmployeeID | Name    | Department | Salary |
+| ---------: | ------- | ---------- | -----: |
+|          1 | Alice   | HR         |  40000 |
+|          2 | Bob     | IT         |  50000 |
+|          3 | Charlie | HR         |  45000 |
+|          4 | David   | IT         |  60000 |
+|          5 | Eva     | Finance    |  55000 |
+|          6 | Frank   | IT         |  55000 |
+
+Write an SQL query to find the employee(s) with the highest salary in the company.
+
+🔵Query:
+
+SELECT Name, Salary 
+FROM Employees
+WHERE Salary = (
+    SELECT MAX(Salary)
+    FROM Employees
+);
+
+⭐Output:
+| Name  | Salary |
+| ----- | -----: |
+| David |  60000 |
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
