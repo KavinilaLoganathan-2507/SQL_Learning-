@@ -640,3 +640,33 @@ WHERE Salary = (
 | David |  60000 |
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Use this table:
+
+Employees
+
+| EmployeeID | Name    | Department | Salary |
+| ---------: | ------- | ---------- | -----: |
+|          1 | Alice   | HR         |  40000 |
+|          2 | Bob     | IT         |  50000 |
+|          3 | Charlie | HR         |  45000 |
+|          4 | David   | IT         |  60000 |
+|          5 | Eva     | Finance    |  55000 |
+|          6 | Frank   | IT         |  55000 |
+
+
+Write an SQL query to find the second-highest salary in the entire company.
+
+🔵Query:
+
+SELECT MAX(Salary) AS SecondHighestSalary
+FROM Employees
+WHERE Salary < (SELECT MAX(Salary) FROM Employees);
+
+⭐Output:
+
+| SecondHighestSalary |
+| ------------------: |
+|               55000 |
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
