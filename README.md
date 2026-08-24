@@ -670,3 +670,37 @@ WHERE Salary < (SELECT MAX(Salary) FROM Employees);
 |               55000 |
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Use this table:
+
+EMployees
+
+| EmployeeID | Name    | Department | Salary |
+| ---------: | ------- | ---------- | -----: |
+|          1 | Alice   | HR         |  40000 |
+|          2 | Bob     | IT         |  50000 |
+|          3 | Charlie | HR         |  45000 |
+|          4 | David   | IT         |  60000 |
+|          5 | Eva     | Finance    |  55000 |
+|          6 | Frank   | IT         |  55000 |
+
+
+Write an SQL query to display each department and the number of employees in that department, but show only departments with more than 1 employee.
+
+🔵Query:
+
+SELECT Department, COUNT(*) AS EmployeeCount
+FROM Employees
+GROUP BY Department
+HAVING COUNT(*) > 1;
+
+
+⭐Output:
+
+| Department | EmployeeCount |
+| ---------- | ------------: |
+| HR         |             2 |
+| IT         |             3 |
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
